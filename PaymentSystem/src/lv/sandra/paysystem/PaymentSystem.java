@@ -1,0 +1,34 @@
+package lv.sandra.paysystem;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PaymentSystem {
+	
+	private List<Payee> payees;
+	
+	public PaymentSystem () {
+		payees = new ArrayList <>();
+	}
+	
+	public void addPayee(Payee payee) {
+		
+		if(!payees.contains(payee)) {
+			payees.add (payee);
+			
+		}
+	}
+	
+	public void ProcessPayments () {
+		
+		for(Payee payee : payees) {
+			
+			Double grossPayment = payee.grossPayment();
+			
+			System.out.println("Paying to " + payee.name());
+			System.out.println("Gross " + grossPayment);
+			System.out.println("Transferred to Account: " + payee.bankAccount());
+		}
+	}
+
+}
